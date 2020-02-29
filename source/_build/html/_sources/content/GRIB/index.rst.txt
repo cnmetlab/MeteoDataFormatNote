@@ -29,10 +29,29 @@ ecCodes提供了一套处理grib数据的命令行工具，你可以使用 ``gri
 
 CDO
 ^^^^^
+``conda install -c conda-forge cdo``
+
 Python
 ^^^^^^^^
+cfgrib & xarray
+"""""""""""""""""
+``conda install -c conda-forge eccodes cfgrib xarray``
+
+pygrib
+"""""""
+``conda install -c conda-forge pygrib``
+
+iris
+"""""
+``conda install -c conda-forge iris``
+
+pynio
+""""""
+``conda install -c conda-forge pynio``
+
 NCL
 ^^^^^
+``conda install -c conda-forge ncl``
 
 示例解析
 ----------
