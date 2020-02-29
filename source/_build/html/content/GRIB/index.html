@@ -89,16 +89,13 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GRIB</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">数据格式简介</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">处理工具及方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#eccodes">ecCodes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">查看grib文件</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#eccodes">ecCodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cdo">CDO</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ncl">NCL</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">示例解析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">示例解析</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../NetCDF/index.html">NetCDF</a></li>
@@ -177,26 +174,21 @@
 <p>GRIB(General Regularly distributed Information in Binary form)，是由世界气象组织（WMO）设计和维护的一种用于存储和传输网格数据的标准数据格式，它是一种自描述的二进制压缩格式，通常具有扩展名.grib，.grb或.gb。</p>
 <p>世界气象组织一共发布了3各版本的GRIB标准：</p>
 <ul class="simple">
-<li><p>GRIB 版本 0: 已淘汰，无技术支持，目前极少使用。</p></li>
+<li><p>GRIB 版本 0: 已淘汰，无技术支持，目前几乎不再使用。</p></li>
 <li><p>GRIB 版本 1: 版本1是GRIB的历史遗留版本，已停止开发。由于它已在国际民航组织（ICAO）的世界范围预报系统中使用，因此仍得到WMO的认可。</p></li>
 <li><p>GRIB 版本 2: 版本2格式是GRIB标准的扩展和强化，它与版本1相比在压缩比等性能上有更优异的表现。一些国家的数值天气预报机构（尤其是美国和欧洲）正在逐步采用此版本，版本2不能与版本1兼容。</p></li>
 </ul>
 <p>想了解更多GRIB1和GRIB2的信息，请参考：<a class="reference external" href="https://www.wmo.int/pages/prog/www/WMOCodes/Guides/GRIB/Introduction_GRIB1-GRIB2.pdf">Introduction to
 GRIB Edition1 and GRIB Edition 2</a></p>
+<p>GRIB数据格式是以一个被称为“消息”(Message)的数据结构为基本单元的集合体。每个“消息”中会存储一套经纬度、变量数组以及所有描述性的属性信息，而每个GRIB文件里会按顺序排列存储多个“消息”。</p>
 </div>
 <div class="section" id="id2">
 <h2>处理工具及方法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="section" id="eccodes">
 <h3>ecCodes<a class="headerlink" href="#eccodes" title="永久链接至标题">¶</a></h3>
-<p>ecCodes 是一个由ECMWF开发的程序包，它可以提供用于解码和编码以下格式的API和工具：</p>
-<ul class="simple">
-<li><p>WMO FM-92 GRIB edition 1 and edition 2</p></li>
-<li><p>WMO FM-94 BUFR edition 3 and edition 4</p></li>
-<li><p>WMO GTS abbreviated header (only decoding).</p></li>
-</ul>
-<div class="section" id="id3">
-<h4>查看grib文件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
-</div>
+<p>ecCodes是一个由ECMWF开发的程序包，它可以提供用于解码和编码GRIB格式的API和工具。我们可以使用conda来安装：<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">eccodes</span></code></p>
+<p>ecCodes提供了一套处理grib数据的命令行工具，你可以使用 <code class="docutils literal notranslate"><span class="pre">grib_dump</span></code> ， <code class="docutils literal notranslate"><span class="pre">grib_ls</span></code> 和 <code class="docutils literal notranslate"><span class="pre">grib_get</span></code> 来查看文件内容，也可以使用 <code class="docutils literal notranslate"><span class="pre">grib_set</span></code> 和 <code class="docutils literal notranslate"><span class="pre">grib_filter</span></code> 去修改内容，还可以用 <code class="docutils literal notranslate"><span class="pre">grib_copy</span></code> 去把部分内容复制出来，或者使用 <code class="docutils literal notranslate"><span class="pre">grib_get_data</span></code> 从文件中把经纬度和变量值提取出来。 <code class="docutils literal notranslate"><span class="pre">grib_compare</span></code> 还可以按照键去对不同GRIB文件进行对比。</p>
+<p>详细的使用方法及示例见ECMWF官方文档： <a class="reference external" href="https://confluence.ecmwf.int/display/GRIB/GRIB+tools">GRIB tools</a></p>
 </div>
 <div class="section" id="cdo">
 <h3>CDO<a class="headerlink" href="#cdo" title="永久链接至标题">¶</a></h3>
@@ -208,8 +200,8 @@ GRIB Edition1 and GRIB Edition 2</a></p>
 <h3>NCL<a class="headerlink" href="#ncl" title="永久链接至标题">¶</a></h3>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>示例解析<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h2>示例解析<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 </div>
 </div>
 
