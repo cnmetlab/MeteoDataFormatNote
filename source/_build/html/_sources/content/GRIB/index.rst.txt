@@ -1,3 +1,4 @@
+=========
 GRIB
 =========
 
@@ -18,6 +19,16 @@ GRIB Edition1 and GRIB Edition 2 <https://www.wmo.int/pages/prog/www/WMOCodes/Gu
 -----------------
 ecCodes
 ^^^^^^^^^
+ecCodes 是一个由ECMWF开发的程序包，它可以提供用于解码和编码以下格式的API和工具：
+
+* WMO FM-92 GRIB edition 1 and edition 2
+* WMO FM-94 BUFR edition 3 and edition 4 
+* WMO GTS abbreviated header (only decoding).
+
+查看grib文件
+""""""""""""
+
+
 CDO
 ^^^^^
 Python
