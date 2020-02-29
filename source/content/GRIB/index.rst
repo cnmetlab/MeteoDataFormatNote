@@ -15,7 +15,7 @@ GRIB(General Regularly distributed Information in Binary form)，是由世界气
 想了解更多GRIB1和GRIB2的信息，请参考：`Introduction to
 GRIB Edition1 and GRIB Edition 2 <https://www.wmo.int/pages/prog/www/WMOCodes/Guides/GRIB/Introduction_GRIB1-GRIB2.pdf>`_
 
-GRIB数据格式是以一个被称为“消息”(Message)的数据结构为基本单元的集合体。每个“消息”中会存储一套经纬度、变量数组以及所有描述性的属性信息，而每个GRIB文件里会按顺序排列存储多个“消息”。
+GRIB数据格式是以一个被称为“报文”(Message)的数据结构为基本单元的集合体。每个“报文”中会存储一套经纬度、变量数组以及所有描述性的属性信息，而每个GRIB文件里会按顺序排列存储多个“报文”。
 
 处理工具及方法
 -----------------
