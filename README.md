@@ -31,7 +31,7 @@ GRIB Edition1 and GRIB Edition 2](https://www.wmo.int/pages/prog/www/WMOCodes/Gu
 GRIB数据格式是以一个被称为“报文”(Message)的数据结构为基本单元的集合体。每个“报文”中会存储一套经纬度、变量数组以及所有描述性的属性信息，而每个GRIB文件里会按顺序排列存储多个“报文”。
 ### 处理工具及方法
 #### ecCodes
-cCodes是一个由ECMWF开发的程序包，它可以提供用于解码和编码GRIB格式的API和工具。我们可以使用conda来安装：`$ conda install -c conda-forge eccodes`
+ecCodes是一个由ECMWF开发的程序包，它可以提供用于解码和编码GRIB格式的API和工具。我们可以使用conda来安装：`$ conda install -c conda-forge eccodes`
 
 ecCodes提供了一套处理grib数据的命令行工具，你可以使用 `grib_dump` ， `grib_ls` 和 `grib_get` 来查看文件内容，也可以使用 `grib_set` 和 `grib_filter` 去修改内容，还可以用 `grib_copy` 去把部分内容复制出来，或者使用 `grib_get_data` 从文件中把经纬度和变量值提取出来。 `grib_compare` 还可以按照键去对不同GRIB文件进行对比。
 
