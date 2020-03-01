@@ -12,9 +12,9 @@
 .. toctree::
    :maxdepth: 3
 
-   source/content/GRIB/index
-   source/content/NetCDF/index
-   source/content/HDF/index
-   source/content/GeoTIFF/index
-   source/content/shapefile/index
-   source/content/GeoJSON/index
+   ./source/content/GRIB/index
+   ./source/content/NetCDF/index
+   ./source/content/HDF/index
+   ./source/content/GeoTIFF/index
+   ./source/content/shapefile/index
+   ./source/content/GeoJSON/index
