@@ -5,10 +5,10 @@
 记录各类气象数据格式的特性及其使用方法   
 
 ## 内容索引
-* [GRIB](###GRIB)
-    * [数据格式简介](###数据格式简介)
-    * [处理工具及方法](###处理工具及方法)
-        * [ecCodes](####ecCodes)
+* [GRIB](#GRIB)
+    * [数据格式简介](#数据格式简介)
+    * [处理工具及方法](#处理工具及方法)
+        * [ecCodes](#ecCodes)
 * [NetCDF](#NetCDF)
 * [HDF](#HDF)
 * [GeoTIFF](#GeoTIFF)
