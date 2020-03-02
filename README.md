@@ -39,9 +39,9 @@ ecCodes是一个由ECMWF开发的程序包，它可以提供用于解码和编�
 
 ecCodes提供了一套处理grib数据的命令行工具，你可以使用 `grib_dump` ， `grib_ls` 和 `grib_get` 来查看文件内容，也可以使用 `grib_set` 和 `grib_filter` 去修改内容，还可以用 `grib_copy` 去把部分内容复制出来，或者使用 `grib_get_data` 从文件中把经纬度和变量值提取出来。 `grib_compare` 还可以按照键去对不同GRIB文件进行对比。
 
-<h5 id="1-2-1-1">grib_ls</h5>
+<h5 id="1-2-1-1">查看GRIB文件内容</h5>
 
-`grib_ls` 命令行主要用于查看GIRB文件的内容信息
+查看GRIB文件内容可以用 `grib_ls` 命令行。
 1. 查看GRIB文件所有报文的所有参数
 ```
 $ grib_ls ERA5_20191231.grib
@@ -102,7 +102,9 @@ Other grid Points
 - 3 - index=39180 latitude=25.25 longitude=100.25 distance=37.48 (Km)
 - 4 - index=39179 latitude=25.25 longitude=100.00 distance=27.78 (Km)
 ```
-更多详细的参数说明及使用方法可以执行 `grib_ls -h` 查看帮助文档或阅读ECMWF官方文档[GRIB tools](https://confluence.ecmwf.int/display/GRIB/GRIB+tools)
+更多详细的参数说明及使用方法可以执行 `grib_ls -h` 查看帮助文档或阅读ECMWF官方文档[grib_ls](https://confluence.ecmwf.int/display/GRIB/grib_ls)
+
+<h5 id="1-2-1-2">将GRIB转换为NetCDF文件</h5>
 
 <h2 id="2">NetCDF</h2>
 <h3 id="2-1">数据格式简介</h3>
