@@ -280,7 +280,40 @@ Other grid Points
 </div>
 <div class="section" id="pygrib">
 <h4>pygrib<a class="headerlink" href="#pygrib" title="永久链接至标题">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">pygrib</span></code></p>
+<p>安装： <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">pygrib</span></code></p>
+<p>使用方法</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">pygrib</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">msgs</span> <span class="o">=</span> <span class="n">pygrib</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./20180930-fc-sfc.grib&#39;</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">msg1</span> <span class="o">=</span> <span class="n">msgs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">msg1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mi">1</span><span class="p">:</span><span class="n">Surface</span> <span class="n">pressure</span><span class="p">:</span><span class="n">Pa</span> <span class="p">(</span><span class="n">instant</span><span class="p">):</span><span class="n">regular_ll</span><span class="p">:</span><span class="n">surface</span><span class="p">:</span><span class="n">level</span> <span class="mi">0</span><span class="p">:</span><span class="n">fcst</span> <span class="n">time</span> <span class="mi">0</span> <span class="n">hrs</span><span class="p">:</span><span class="kn">from</span> <span class="mi">201809301200</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">msg1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>    <span class="c1"># 查看所有关键字，此处列出的关键字都可以作为select的过滤条件</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span>
+<span class="p">[</span><span class="s1">&#39;globalDomain&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;GRIBEditionNumber&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;eps&#39;</span><span class="p">,</span>
+ <span class="o">...</span>
+ <span class="s1">&#39;section5Length&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;analDate&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;validDate&#39;</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">msg1</span><span class="o">.</span><span class="n">shortName</span>   <span class="c1"># 查看shortName</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="s1">&#39;sp&#39;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">msg1</span><span class="o">.</span><span class="n">name</span>    <span class="c1"># 查看name</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="s1">&#39;Surface pressure&#39;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span> <span class="o">=</span> <span class="n">msg1</span><span class="o">.</span><span class="n">latlons</span><span class="p">()</span>   <span class="c1"># 提取经纬坐标</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">]:</span> <span class="n">array</span> <span class="o">=</span> <span class="n">msg1</span><span class="o">.</span><span class="n">values</span>    <span class="c1"># 提取变量值</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">tps</span> <span class="o">=</span> <span class="n">msgs</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">shortName</span><span class="o">=</span><span class="s1">&#39;tp&#39;</span><span class="p">)</span>   <span class="c1"># 选出所有shortName为tp的报文</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="iris">
 <h4>iris<a class="headerlink" href="#iris" title="永久链接至标题">¶</a></h4>

@@ -109,7 +109,43 @@ cfgrib & xarray
 
 pygrib
 """""""
-``conda install -c conda-forge pygrib``
+安装： ``conda install -c conda-forge pygrib``
+
+使用方法
+
+.. code-block:: python
+
+    In [1]: import pygrib
+
+    In [2]: msgs = pygrib.open('./20180930-fc-sfc.grib')           
+
+    In [3]: msg1 = msgs[1]
+
+    In [4]: msg1
+    Out[4]: 1:Surface pressure:Pa (instant):regular_ll:surface:level 0:fcst time 0 hrs:from 201809301200
+
+    In [5]: msg1.keys()    # 查看所有关键字，此处列出的关键字都可以作为select的过滤条件
+    Out[5]: 
+    ['globalDomain',
+     'GRIBEditionNumber',
+     'eps',
+     ...
+     'section5Length',
+     'analDate',
+     'validDate']
+
+    In [6]: msg1.shortName   # 查看shortName
+    Out[6]: 'sp'
+
+    In [10]: msg1.name    # 查看name
+    Out[10]: 'Surface pressure'
+
+    In [17]: lats, lons = msg1.latlons()   # 提取经纬坐标
+
+    In [21]: array = msg1.values    # 提取变量值
+
+    In [23]: tps = msgs.select(shortName='tp')   # 选出所有shortName为tp的报文
+
 
 iris
 """""
