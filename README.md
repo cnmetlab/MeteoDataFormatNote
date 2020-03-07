@@ -9,6 +9,7 @@
     * [数据格式简介](#1-1)
     * [处理工具及方法](#1-2)
         * [ecCodes](#1-2-1)
+        * [Python](#1-2-2)
 * [NetCDF](#2)
     * [数据格式简介](#2-1)
 * [HDF](#3)
@@ -105,6 +106,45 @@ Other grid Points
 更多详细的参数说明及使用方法可以执行 `grib_ls -h` 查看帮助文档或阅读ECMWF官方文档[grib_ls](https://confluence.ecmwf.int/display/GRIB/grib_ls)
 
 <h5 id="1-2-1-2">将GRIB转换为NetCDF文件</h5>
+
+<h4 id="1-2-2">Python</h4>
+
+安装：`conda install -c conda-forge pygrib`   
+使用方法:   
+
+```python
+
+In [1]: import pygrib
+
+In [2]: msgs = pygrib.open('./20180930-fc-sfc.grib')           
+
+In [3]: msg1 = msgs[1]
+
+In [4]: msg1
+Out[4]: 1:Surface pressure:Pa (instant):regular_ll:surface:level 0:fcst time 0 hrs:from 201809301200
+
+In [5]: msg1.keys()    # 查看所有关键字，此处列出的关键字都可以作为select的过滤条件
+Out[5]: 
+['globalDomain',
+    'GRIBEditionNumber',
+    'eps',
+    ...
+    'section5Length',
+    'analDate',
+    'validDate']
+
+In [6]: msg1.shortName   # 查看shortName
+Out[6]: 'sp'
+
+In [10]: msg1.name    # 查看name
+Out[10]: 'Surface pressure'
+
+In [17]: lats, lons = msg1.latlons()   # 提取经纬坐标
+
+In [21]: array = msg1.values    # 提取变量值
+
+In [23]: tps = msgs.select(shortName='tp')   # 选出所有shortName为tp的报文
+```
 
 <h2 id="2">NetCDF</h2>
 <h3 id="2-1">数据格式简介</h3>
