@@ -9,7 +9,7 @@
     * [数据格式简介](#1-1)
     * [处理工具及方法](#1-2)
         * [ecCodes](#1-2-1)
-        * [Python](#1-2-2)
+        * [pygrib](#1-2-2)
 * [NetCDF](#2)
     * [数据格式简介](#2-1)
 * [HDF](#3)
@@ -107,7 +107,7 @@ Other grid Points
 
 <h5 id="1-2-1-2">将GRIB转换为NetCDF文件</h5>
 
-<h4 id="1-2-2">Python</h4>
+<h4 id="1-2-2">pygrib</h4>
 
 安装：`conda install -c conda-forge pygrib`   
 使用方法:   
