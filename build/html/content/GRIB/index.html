@@ -314,6 +314,10 @@ Other grid Points
 <span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">tps</span> <span class="o">=</span> <span class="n">msgs</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">shortName</span><span class="o">=</span><span class="s1">&#39;tp&#39;</span><span class="p">)</span>   <span class="c1"># 选出所有shortName为tp的报文</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>在pygrib中，打开的grib文件无法自动回收内存，因此在使用完毕grib数据以后，一定要执行 <cite>.close()</cite> 操作，否则如果打开的grib文件太多，会造成内存溢出。</p>
+</div>
 </div>
 <div class="section" id="iris">
 <h4>iris<a class="headerlink" href="#iris" title="永久链接至标题">¶</a></h4>

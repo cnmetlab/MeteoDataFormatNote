@@ -145,6 +145,7 @@ In [21]: array = msg1.values    # 提取变量值
 
 In [23]: tps = msgs.select(shortName='tp')   # 选出所有shortName为tp的报文
 ```
+**警告：在pygrib中，打开的grib文件无法自动回收内存，因此在使用完毕grib数据以后，一定要执行 `.close()` 操作，否则如果打开的grib文件太多，会造成内存溢出。**
 
 <h2 id="2">NetCDF</h2>
 <h3 id="2-1">数据格式简介</h3>

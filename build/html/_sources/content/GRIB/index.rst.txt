@@ -146,6 +146,9 @@ pygrib
 
     In [23]: tps = msgs.select(shortName='tp')   # 选出所有shortName为tp的报文
 
+.. warning::
+    在pygrib中，打开的grib文件无法自动回收内存，因此在使用完毕grib数据以后，一定要执行 `.close()` 操作，否则如果打开的grib文件太多，会造成内存溢出。
+
 
 iris
 """""
